@@ -5,7 +5,8 @@ import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Link;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
-import io.qameta.allure.junit4.DisplayName;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
@@ -13,10 +14,11 @@ import static com.codeborne.selenide.Selectors.byTagName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Owner("zhuravel")
-public class WGTests {
+@Tag("web")
+public class WGTests extends TestBase{
 
     final String mainPage = "https://wargaming.com/ru/",
             bannerPage = "https://wargaming.com/ru/banner/",
