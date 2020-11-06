@@ -17,12 +17,13 @@ targetCompatibility = 1.8
 defaultTasks 'help'
 
 ext {
-    allureVersion = "2.13.5"
-    selenideVersion = "5.14.2"
+    allureVersion = "2.13.6"
+    selenideVersion = "5.15.1"
     junitVersion = "5.6.2"
 }
 
 repositories {
+    maven {url = "https://dl.bintray.com/qameta/maven-unstable/"}
     mavenCentral()
 }
 
@@ -40,8 +41,13 @@ dependencies {
             "org.aspectj:aspectjweaver:1.9.5",
             "com.codeborne:selenide:${selenideVersion}",
             "io.qameta.allure:allure-selenide:${allureVersion}",
+            "io.rest-assured:rest-assured:4.1.2",
+            "io.qameta.allure:allure-rest-assured:${allureVersion}",
+            "com.fasterxml.jackson.core:jackson-annotations:2.10.3",
+            "io.appium:java-client:7.3.0",
             "ch.qos.logback:logback-classic:1.2.3",
             "org.aeonbits.owner:owner:1.0.12",
+//            "io.qameta.allure:allure-ee-junit-platform:3.28.2",
             "org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
 }
@@ -52,25 +58,38 @@ tasks.withType(JavaCompile) {
 
 tasks.withType(Test) {
     systemProperties = System.properties
-    if (project.hasProperty("web_threads")) {
-        systemProperties += [
-                'junit.jupiter.execution.parallel.enabled'                 : true,
-                'junit.jupiter.execution.parallel.mode.default'            : 'concurrent',
-                'junit.jupiter.execution.parallel.mode.classes.default'    : 'concurrent',
-                'junit.jupiter.execution.parallel.config.strategy'         : 'fixed',
-                'junit.jupiter.execution.parallel.config.fixed.parallelism': project.getProperty("web_threads").toInteger()
-        ]
-    }
     testLogging {
         lifecycle {
             events "started", "skipped", "failed", "standard_error", "standard_out"
             exceptionFormat "short"
         }
     }
+    systemProperty 'junit.jupiter.extensions.autodetection.enabled', 'true'
 }
 
-task tests(type: Test) {
-    useJUnitPlatform {}
+test {
+    useJUnitPlatform()
+}
+
+task web(type: Test) {
+    useJUnitPlatform {
+        includeTags 'web'
+    }
+    systemProperty 'platform', 'web'
+}
+
+task android(type: Test) {
+    useJUnitPlatform {
+        includeTags 'android'
+    }
+    systemProperty 'platform', 'android'
+}
+
+task ios(type: Test) {
+    useJUnitPlatform {
+        includeTags 'ios'
+    }
+    systemProperty 'platform', 'ios'
 }
 
 help {
@@ -79,11 +98,17 @@ help {
         println "************************************************************************ "
         println "***                                                                  *** "
         println "*** Welcome to                                                       *** "
-        println "*** https://github.com/autotests-cloud/qa_guru_web_tests             *** "
+        println "*** https://github.com/autotests-cloud/qa_guru_diplom_project        *** "
         println "***                                                                  *** "
+        println "*** Requirements for mobile tests:                                   *** "
+        println "*** - get browserstack account                                       *** "
+        println "*** - start appium server locally                                    *** "
+        println "*** - install XCode with iPhone Simulators                           *** "
         println "***                                                                  *** "
         println "*** You can run tests by one of the following commands:              *** "
-        println "*** ./gradlew tests                                                  *** "
+        println "*** ./gradlew web                                                    *** "
+        println "*** ./gradlew android                                                *** "
+        println "*** ./gradlew ios                                                    *** "
         println "***                                                                  *** "
         println "************************************************************************ "
         println ""
