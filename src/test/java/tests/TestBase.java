@@ -13,7 +13,6 @@ import static helpers.AttachmentsHelper.*;
 import static helpers.BrowserstackHelper.getBSPublicLink;
 import static helpers.DriverHelper.*;
 
-
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
 public class TestBase {
 

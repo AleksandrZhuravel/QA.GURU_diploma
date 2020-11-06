@@ -12,7 +12,6 @@ import java.nio.charset.StandardCharsets;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static helpers.BrowserstackHelper.getBrowserstackVideoUrl;
 
-
 public class AttachmentsHelper {
 
     @Attachment(value = "{attachName}", type = "text/plain")
@@ -38,9 +37,9 @@ public class AttachmentsHelper {
     }
 
     public static String getVideoUrl(String sessionId) {
-        if(ConfigHelper.isWeb()) {
+        if (ConfigHelper.isWeb()) {
             return getWebVideoUrl(sessionId);
-        } else if (ConfigHelper.isAndroid() || ConfigHelper.isIos()){
+        } else if (ConfigHelper.isAndroid() || ConfigHelper.isIos()) {
             return getBrowserstackVideoUrl(sessionId);
         } else {
             return null; // todo isDesktop
@@ -55,5 +54,4 @@ public class AttachmentsHelper {
         }
         return null;
     }
-
 }

@@ -18,19 +18,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Owner("zhuravel")
 @Tag("web")
-public class WGTests extends TestBase{
+public class WGTests extends TestBase {
 
     final String mainPage = "https://wargaming.com/ru/",
             bannerPage = "https://wargaming.com/ru/banner/",
             privacyPage = "https://legal.ru.wargaming.net/ru/privacy-policy/",
             faqPage = "https://wargaming.com/ru/faq/",
-            godsGloryPage = "https://godsandglory.com/1957_ru1";
+            godsGloryPage = "https://godsandglory.com/1957_en1";
 
     @Test
     @Story("")
     @DisplayName("1) Проверка работы открывающегося баннера 'Подробнее' на главной странице")
     @Link(value = "Wargaming", url = mainPage)
-    public void first() {
+    public void bannerDetailedShouldOpen() {
 
         step("a) Открыть стартовую страницу сайта" + mainPage + ";", () -> {
             open(mainPage);
@@ -52,7 +52,7 @@ public class WGTests extends TestBase{
     @Story("")
     @DisplayName("2) Проверка работы слайдера на главной странице")
     @Link(value = "Wargaming", url = mainPage)
-    public void second() {
+    public void sliderShouldSwitchPages() {
 
         step("a) Открыть стартовую страницу сайта" + mainPage + ";", () -> {
             open(mainPage);
@@ -77,7 +77,7 @@ public class WGTests extends TestBase{
     @Story("")
     @DisplayName("3) Проверка открытия документа 'ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ WARGAMING'")
     @Link(value = "Wargaming", url = mainPage)
-    public void third() {
+    public void confidentialityDocumentShouldOpen() {
 
         step("a) Открыть стартовую страницу сайта" + mainPage + ";", () -> {
             open(mainPage);
@@ -105,7 +105,7 @@ public class WGTests extends TestBase{
     @Story("")
     @DisplayName("4) Проверка открытия страницы 'FAQ'")
     @Link(value = "Wargaming", url = mainPage)
-    public void fourth() {
+    public void faqPageShouldOpen() {
 
         step("a) Открыть стартовую страницу сайта" + mainPage + ";", () -> {
             open(mainPage);
@@ -132,7 +132,7 @@ public class WGTests extends TestBase{
     @Story("")
     @DisplayName("5) Проверка открытия страницы 'Gods & Glory'")
     @Link(value = "Wargaming", url = mainPage)
-    public void fifth() {
+    public void godsGloryPageShouldOpen() {
 
         step("a) Открыть стартовую страницу сайта" + mainPage + ";", () -> {
             open(mainPage);

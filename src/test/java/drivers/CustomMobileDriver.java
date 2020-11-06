@@ -6,8 +6,6 @@ import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-
-
 public class CustomMobileDriver implements WebDriverProvider {
 
     @Override
@@ -17,10 +15,9 @@ public class CustomMobileDriver implements WebDriverProvider {
 //        } else if (isIos) {
 //            return getIosDriver();
 //        } else {
-            return null; // not todo getWindowsPhoneDriver();
+        return null; // not todo getWindowsPhoneDriver();
 //        }
     }
-
 //    private DesiredCapabilities commonCapabilities() { // todo update for local drivers, now only browserstack
 //        DesiredCapabilities capabilities = new DesiredCapabilities();
 //        capabilities.setCapability("project", "autotests.cloud");
@@ -53,5 +50,4 @@ public class CustomMobileDriver implements WebDriverProvider {
 //
 //        return new IOSDriver(getBrowserstackUrl(), capabilities);
 //    }
-
 }

@@ -19,7 +19,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 
-
 public class CustomWebDriver implements WebDriverProvider {
     @Override
     public WebDriver createDriver(DesiredCapabilities capabilities) {
@@ -36,7 +35,7 @@ public class CustomWebDriver implements WebDriverProvider {
         capabilities.setCapability(ChromeOptions.CAPABILITY, getChromeOptions());
         WebDriverManager.chromedriver().setup();
 
-        if(!ConfigHelper.getWebRemoteDriver().equals("")) {
+        if (!ConfigHelper.getWebRemoteDriver().equals("")) {
             return getRemoteWebDriver(capabilities);
         } else {
             return getLocalChromeDriver(capabilities);
