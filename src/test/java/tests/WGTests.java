@@ -24,7 +24,7 @@ public class WGTests extends TestBase {
             bannerPage = "https://wargaming.com/ru/banner/",
             privacyPage = "https://legal.ru.wargaming.net/ru/privacy-policy/",
             faqPage = "https://wargaming.com/ru/faq/",
-            godsGloryPage = "https://godsandglory.com/1957_ru1";
+            godsGloryPage = "https://godsandglory.com/1957_en1";
 
     @Test
     @Story("")
