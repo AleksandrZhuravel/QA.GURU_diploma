@@ -24,7 +24,7 @@ public class WGTests extends TestBase {
             bannerPage = "https://wargaming.com/ru/banner/",
             privacyPage = "https://legal.ru.wargaming.net/ru/privacy-policy/",
             faqPage = "https://wargaming.com/ru/faq/",
-            godsGloryPage = "https://godsandglory.com/1957_en1";
+            godsGloryPage = "https://godsandglory.com/1957_ru1";
 
     @Test
     @Story("")
@@ -155,8 +155,8 @@ public class WGTests extends TestBase {
             assertEquals(godsGloryPage, WebDriverRunner.url());
         });
 
-        step("f) Проверить, что заголовок страницы содержит текст 'RULE THE EMPIRE'.", () -> {
-            $(".js-screen-1-title").shouldHave(Condition.text("RULE THE EMPIRE"));
+        step("f) Проверить, что заголовок страницы содержит текст 'СТАНЬ ПРАВИТЕЛЕМ ВЕЛИКОЙ ИМПЕРИИ'.", () -> {
+            $(".js-screen-1-title").shouldHave(Condition.text("СТАНЬ ПРАВИТЕЛЕМ ВЕЛИКОЙ ИМПЕРИИ"));
         });
     }
 }
