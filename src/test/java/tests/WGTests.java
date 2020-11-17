@@ -27,9 +27,10 @@ public class WGTests extends TestBase {
             godsGloryPage = "https://godsandglory.com/1957_ru1";
 
     @Test
-    @Story("")
+    @Story("Работа открывающихся баннеров")
     @DisplayName("1) Проверка работы открывающегося баннера 'Подробнее' на главной странице")
     @Link(value = "Wargaming", url = mainPage)
+    @JiraIssue("QC-5")
     public void bannerDetailedShouldOpen() {
 
         step("a) Открыть стартовую страницу сайта" + mainPage + ";", () -> {
@@ -49,9 +50,10 @@ public class WGTests extends TestBase {
     }
 
     @Test
-    @Story("")
+    @Story("Работа слайдеров")
     @DisplayName("2) Проверка работы слайдера на главной странице")
     @Link(value = "Wargaming", url = mainPage)
+    @JiraIssue("QC-5")
     public void sliderShouldSwitchPages() {
 
         step("a) Открыть стартовую страницу сайта" + mainPage + ";", () -> {
@@ -74,9 +76,10 @@ public class WGTests extends TestBase {
     }
 
     @Test
-    @Story("")
+    @Story("Открытие документов")
     @DisplayName("3) Проверка открытия документа 'ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ WARGAMING'")
     @Link(value = "Wargaming", url = mainPage)
+    @JiraIssue("QC-5")
     public void confidentialityDocumentShouldOpen() {
 
         step("a) Открыть стартовую страницу сайта" + mainPage + ";", () -> {
@@ -87,12 +90,12 @@ public class WGTests extends TestBase {
             $(".group", 5).$(byText("Защита данных")).click();
         });
 
-        step("c) Нажать на ссылку 'Политикой конфиденциальности' в верхнем обзаце параграфа \n" +
+        step("c) Нажать на ссылку 'Политикой конфиденциальности' в верхнем абзаце параграфа \n" +
                 "       'Защита данных';", () -> {
             $x("//a[contains(text(),'Политикой конфиденциальности')]").click();
         });
 
-        step("d) Проверить переход на страницу 'https://legal.ru.wargaming.net/ru/privacy-policy/';", () -> {
+        step("d) Проверить переход на страницу '" + privacyPage + "';", () -> {
             assertEquals(privacyPage, WebDriverRunner.url());
         });
 
@@ -102,9 +105,10 @@ public class WGTests extends TestBase {
     }
 
     @Test
-    @Story("")
+    @Story("Работа справочников")
     @DisplayName("4) Проверка открытия страницы 'FAQ'")
     @Link(value = "Wargaming", url = mainPage)
+    @JiraIssue("QC-5")
     public void faqPageShouldOpen() {
 
         step("a) Открыть стартовую страницу сайта" + mainPage + ";", () -> {
@@ -119,7 +123,7 @@ public class WGTests extends TestBase {
             $x("//span[contains(text(),'FAQ')]").click();
         });
 
-        step("d) Проверить переход на страницу 'https://wargaming.com/ru/faq/';", () -> {
+        step("d) Проверить переход на страницу '" + faqPage + "';", () -> {
             assertEquals(faqPage, WebDriverRunner.url());
         });
 
@@ -129,9 +133,10 @@ public class WGTests extends TestBase {
     }
 
     @Test
-    @Story("")
+    @Story("Работа страниц продуктов")
     @DisplayName("5) Проверка открытия страницы 'Gods & Glory'")
     @Link(value = "Wargaming", url = mainPage)
+    @JiraIssue("QC-5")
     public void godsGloryPageShouldOpen() {
 
         step("a) Открыть стартовую страницу сайта" + mainPage + ";", () -> {
@@ -151,7 +156,7 @@ public class WGTests extends TestBase {
             switchTo().window(1);
         });
 
-        step("e) Проверить переход на страницу 'https://godsandglory.com/1957_ru1';", () -> {
+        step("e) Проверить переход на страницу '" + godsGloryPage + "';", () -> {
             assertEquals(godsGloryPage, WebDriverRunner.url());
         });
 
