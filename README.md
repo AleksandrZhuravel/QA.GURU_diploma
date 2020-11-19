@@ -1,13 +1,3 @@
-Статус проведенных тестов:
-[![Build status](https://ci.appveyor.com/api/projects/status/jyhoe2xl0pcyy6va/branch/master?svg=true)](https://ci.appveyor.com/project/AleksandrZhuravel/qa-guru-diplom-project/branch/master)
-
-
-
-
-
-
-
-
 ### Тестовое задание на вакансию "QA Automation Engineer (World of Tanks, Web)" компании "Wargaming".
 #### Проведение автоматизации тестирования ресурса "wargaming.com".
 **Тестируемая функциональность:** функционирование элементов интерфейса.
